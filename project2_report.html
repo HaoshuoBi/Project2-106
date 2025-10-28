@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Yidong Shi, Haoshuo Bi, Yuntao San</strong> — <em>yis089@ucsd.edu, hbi@ucsd.edu, joshan@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Countries with higher education levels tend to have older populations.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="Plot/p_support_lines.png"
+               alt="1970–2020 标准化时间序列：中等教育入学率与老龄抚养比同步上升，长期走势同向">
+          <figcaption>1970–2020（全球聚合，标准化到 0–1）：教育扩张与老龄抚养比长期同向上升，支持“高教育 ↔ 更老龄化”的总体叙事。</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Normalize both series to 0–1</strong> (<em>+1.5 Earnest</em>): 统一量纲便于直观比较两条曲线的共同趋势；代价是弱化绝对量级差异。</li>
+          <li><strong>Long horizon (1970–2020)</strong> (<em>+1.0</em>): 拉长时间窗口揭示结构性共变，减少短期噪声对结论的干扰。</li>
+          <li><strong>Single shared y-scale & unobtrusive grid</strong> (<em>+1.0</em>): 相同尺度与克制网格降低读图成本，把注意力集中在“同步上升”。</li>
+          <li><strong>Neutral framing + key-point annotations</strong> (<em>+0.5</em>): 用中性标题与关键节点注释引导“长期同向”的解读，而非情绪化用词。</li>
+        </ul>
+      </section>
+  <!-- 反对方 -->
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="Plot/p_opp_window_scatter.png"
+               alt="1995–2000 窄窗口散点：中等教育入学率与老龄抚养比相关性松散">
+          <figcaption>窄窗口（1995–2000）+ 中/高教育入学率国家：散点分布显得松散、趋势不稳，提示“教育并不必然伴随老龄化”的另一种解读。</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Narrow time window: 1995–2000</strong> (<em>−1.0 Deceptive</em>): 选择短期时段削弱长期相关性；若不显著披露窗口选择，具有轻度欺骗性。</li>
+          <li><strong>Subset to mid–high enrollment countries</strong> (<em>−0.5</em>): 聚焦 58–82% 区间让散点更“无序”，弱化整体正相关印象。</li>
+          <li><strong>No trendline / smoothing</strong> (<em>−0.5</em>): 不提供回归或平滑线，增强“看不出关系”的第一眼感受。</li>
+          <li><strong>Plain, cautionary title framing</strong> (<em>+0.5</em>): 用克制措辞提示“在窄窗口内关系看起来较弱”，避免夸张语言。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+       <p>
+          Designing for both sides showed how framing alone—normalization, time-window selection,
+          and subsetting—can pivot a reader’s takeaway without changing the dataset. On a long horizon,
+          standardized series co-move and make the relationship feel structural; on a narrow window with a
+          restricted subset, the same relationship looks contingent or even absent.
+        </p>
+        <p>
+          We define ethical visualization as <em>disclosing</em> transformations that materially affect
+          interpretation and avoiding moves a reasonable reader cannot easily detect. Acceptable persuasion
+          clarifies an argument while surfacing caveats (e.g., long-horizon trends with annotations). Misleading
+          choices conceal those caveats or manufacture impressions that would not survive under equally reasonable
+          views (e.g., aggressively cherry-picked windows without disclosure). Our “against” design intentionally uses
+          a mild form of deception (narrow window + subset) to reveal the fragility of conclusions and to motivate
+          explicit disclosure in captions and write-ups.
+        </p>
+      </section>
+    </main>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
