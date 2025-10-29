@@ -145,6 +145,13 @@
         display: block;
         margin: 0 auto;
       }
+      h2.proposition {
+          text-align: center;      
+          white-space: nowrap;     
+          overflow-x: auto;        
+          -webkit-overflow-scrolling: touch;
+          }
+
     </style>
   </head>
 
@@ -159,7 +166,7 @@
     </header>
 
     <main>
-      <h2>Proposition: Countries with higher education levels tend to have older populations.</h2>
+      <h2 class="proposition">Proposition: Countries with higher education levels tend to have older populations.</h2>
 
       <section>
         <h3>FOR the Proposition</h3>
@@ -167,7 +174,9 @@
         <figure>
           <img src="Plot/p_support_lines.png"
                alt="1970–2020 line chart showing normalized time series of secondary school enrollment and old-age dependency ratio rising together over time">
-          <figcaption>1970–2020 (global aggregate, normalized 0–1): Education expansion and the old-age dependency ratio have risen together over time, supporting the overall narrative that higher education levels are associated with more aging populations.</figcaption>
+          <figcaption>(1970–2020)--Education and aging rise together globally, suggesting that schooling expansion aligns with population aging.
+            The sharp drop after 2019 likely reflects incomplete data coverage rather than a real decline.
+          </figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
@@ -176,7 +185,7 @@
           <li><strong>Normalized both series to 0–1</strong>: This makes the upward movement of education and aging directly comparable and clear to the reader.</li>
           <li><strong>Used a long time span (1970–2020)</strong>: A broad view highlights a persistent relationship between the two indicators over time.</li>
           <li><strong>Applied one shared y-axis and subtle grid lines</strong>: Keeps focus on the two rising curves rather than visual clutter.</li>
-          <li><strong>Neutral title and concise annotations</strong>: The design remains objective while still pointing out key turning points.</li>
+          <li><strong>Neutral title and concise annotations</strong>: Tells the story without distracting or confusing the viewer.</li>
         </ul>
 
       </section>
@@ -187,16 +196,16 @@
         <figure>
           <img src="Plot/p_opp_window_scatter.png"
                alt="1995–2000 scatter plot showing the loose correlation between secondary school enrollment and old-age dependency ratio">
-          <figcaption>Narrow window (1995–2000) + countries with medium to high school enrollment: The scatter distribution appears loose and unstable, suggesting another interpretation that education does not necessarily coincide with population aging.</figcaption>
+          <figcaption>(1995–2000, narrow time frame)--Limiting the data to only five years changes the story—the points look scattered and the link between education and aging becomes unclear. This framing shows how a short time scale can weaken an otherwise visible trend.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li><strong>Focused on a short window (1995–2000)</strong>: Selecting a narrow period makes the relationship appear less stable, showing how time scope changes interpretation.</li>
-          <li><strong>Filtered to mid–high enrollment countries</strong>: Emphasizes variation within similar education levels, which visually weakens the global correlation.</li>
-          <li><strong>Removed regression line</strong>: Encourages the viewer to rely on raw data distribution instead of an imposed trend.</li>
-          <li><strong>Simple, cautionary title</strong>: Suggests limited generalizability in a balanced tone.</li>
+          <li><strong>Focused on a short window (1995–2000)</strong>: The short time frame hides the long-term pattern and makes the data look random.</li>
+          <li><strong>Keep axes in a tight range</strong>: Compressing the scale makes differences look smaller.</li>
+          <li><strong>No trend line or extra labels</strong>: Leaves viewers without clues about direction.</li>
+          <li><strong>Neutral title (“the link looks weak”)</strong>: Sounds objective but frames the data as unrelated.</li>
         </ul>
 
       </section>
