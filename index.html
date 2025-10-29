@@ -45,7 +45,7 @@
 
       h1 {
         margin-block: 1em 0.5rem;
-        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-size: clamp(1.8em, 2vw + 1.5rem, 4em);
         font-weight: 800;
 
         small {
@@ -55,7 +55,8 @@
           margin-inline: auto;
           color: white;
           background: var(--color-neutral-40);
-          font-size: 40%;
+          font-size: 45%;
+          opacity: 0.8;
           text-transform: uppercase;
           white-space: nowrap;
         }
@@ -137,6 +138,12 @@
             );
           }
         }
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
       }
     </style>
   </head>
